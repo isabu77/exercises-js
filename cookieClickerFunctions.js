@@ -5,6 +5,8 @@ var multiplicateur = 1;
 var div = document.getElementById("affichage");
 var prix = 0;
 var intevalId = null;
+var bonusTimer = 0;
+var intevalIdBonus = null;
 
 function aleatoire(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -13,11 +15,16 @@ function aleatoire(min, max) {
 function boutonClic() {
 	var btn = document.getElementById("clic");
 	var pscore = document.getElementById("score");
-    score += multiplicateur;
-    console.log(score);
+ 	if (bonusTimer != 0){
+	  score += multiplicateur*2;
+		
+	}else{
+	  score += multiplicateur;
+
+	}
     pscore.innerHTML = score;
     btn.innerHTML = score;
-    autoClic();
+    //autoClic();
 
 }
 
@@ -33,14 +40,48 @@ function augmenterMultiplicateur() {
     }
     document.getElementById("score").innerHTML = score;
     btn.innerHTML = " Multiplicateur x " + multiplicateur + " Prix : " + (multiplicateur*50);
-    autoClic();
+    //autoClic();
 }
 
-// étape 11
+// étape 11 et 12
 function autoClic() {
-   if (score >= 200 && intevalId === null){
+   // if (score >= 200 && intevalId === null){
+   	if (intevalId === null){
 	  	intervalID = setInterval(boutonClic, 1000);
+	  	document.getElementById("autoclic").disabled = true;
+	    score -= 500;
+	    if (score < 0){
+	    	score = 0;
+	    }
     }
+}
+
+// étape 13
+function bonusClic() {
+	var btnBonus = document.getElementById("bonus");
+	bonusTimer = 30;
+	btnBonus.disabled = true;
+	btnBonus.innerHTML = bonusTimer;
+    score -= 5000;
+    if (score < 0){
+    	score = 0;
+
+   	if (intevalIdBonus === null){
+	  	intevalIdBonus = setInterval(autoBonus, 1000);
+	    }
+    }
+}
+
+function autoBonus() {
+	var btnBonus = document.getElementById("bonus");
+	bonusTimer--;
+	btnBonus.innerHTML = bonusTimer;
+
+	if (bonusTimer === 0){
+		btnBonus.innerHTML = "bonus Prix: 5000";
+		clearInterval(intevalIdBonus);
+	}
+
 }
 
 function stopautoClic() {
