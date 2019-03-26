@@ -1,12 +1,74 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
-#clic{
-  border:1px solid;
-
+.bouton{
+      color: rgb(255, 255, 255); 
+      font-size: 16px; 
+      line-height: 16px; 
+      padding: 6px; 
+      border-radius: 26px; 
+      font-family: Georgia, serif; 
+      font-weight: normal; 
+      text-decoration: none; 
+      font-style: normal; 
+      font-variant: normal; 
+      text-transform: none; 
+      background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
+      box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; 
+      border: 2px solid rgb(28, 110, 164); 
+      display: inline-block;}
 }
+.bouton:hover {
+      background: #1C6EA4; 
+}
+.bouton:active {
+      background: #144E75; 
+}
+.bouton:disabled {
+      background: #144E75; 
+     color: rgb(130, 230, 230); 
+ }
+
+#jeu{
+      border-radius: 26px; 
+  text-align: center; 
+    margin: 20px;
+    padding: 5px;
+    color: #FFFFFF;
+    background: #912C22;
+    text-shadow: 0 0 10px #FFFFFF;
+}
+
 #affichage{
-  border:2px solid;
+       border-radius: 26px; 
+   margin: 20px;
+    padding: 5px;
+    color: #FFFFFF;
+    background: #912C22;
+    text-shadow: 0 0 10px #FFFFFF;
+  text-align: center; 
 }
 
+#multiplier{
+  //border:2px solid;
+}
+
+#autoclic{
+  //border:2px solid;
+}
+
+#bonus{
+  //border:2px solid;
+}
+
+
+h1{
+  background-size: 100%;
+  background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
+  height:50px;
+  color: rgb(255, 255, 255); 
+  text-align: center; 
+  font-size: 46px;
+
+}
 
 

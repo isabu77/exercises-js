@@ -4,12 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cookie Clicker</title>
+  	<link rel="stylesheet" href="cookieClicker.css"/>
 </head>
 <body>
-	<button id = "clic" onclick="boutonClic()">0</button>
-	<button id = "multiplier" onclick="augmenterMultiplicateur()">multiplier Prix : 50</button>
-	<button id = "autoclic" onclick="autoClic()">autoclick Prix: 500</button>
-	<button id = "bonus" onclick="bonusClic()">bonus Prix: 5000</button>
+	<h1>COOKIE CLICKER : Faites vos jeux !!</h1>
+	<div id="jeu">
+		<button class="bouton" id = "clic" onclick="boutonClic()">0</button>
+		<button class="bouton" id = "multiplier" onclick="augmenterMultiplicateur()">multiplier Prix : 50</button>
+		<button class="bouton" id = "autoclic" onclick="autoClic()">autoclick Prix: 500</button>
+		<button class="bouton" id = "bonus" onclick="bonusClic()">bonus Prix: 5000</button>
+	</div>
 	<div id="affichage">
 		<span >Score : </span><span id="score">0</span>
 	</div>
