@@ -29,7 +29,7 @@ function boutonClic() {
 }
 
 function augmenterMultiplicateur() {
-	var btn = document.getElementById("multiplier");
+	var btn = document.getElementById("Multiplier");
 	//var pmultiplicateur = document.getElementById("multiplicateur");
  	prix = multiplicateur*50;
  	multiplicateur++;
@@ -38,7 +38,7 @@ function augmenterMultiplicateur() {
     if (score < 0){
     	score = 0;
     }
-   btn.innerHTML = " Multiplicateur x " + multiplicateur + " Prix : " + (multiplicateur*50);
+   btn.innerHTML = " Multiplicateur x " + multiplicateur + " (Prix : " + (multiplicateur*50) + ")";
     //autoClic();
 	activerBoutons();
 }
@@ -80,7 +80,7 @@ function autoBonus() {
 	btnBonus.innerHTML = bonusTimer;
 
 	if (bonusTimer === 0){
-		btnBonus.innerHTML = "bonus Prix: 5000";
+		btnBonus.innerHTML = "Bonus (Prix: 5000)";
 		clearInterval(intervalIdBonus);
 		btnBonus.disabled = false;
 		intervalIdBonus = null;
@@ -99,7 +99,7 @@ function activerBoutons() {
 
 function stopautoClic() {
 	var btnBonus = document.getElementById("bonus");
-	btnBonus.innerHTML = "bonus Prix: 5000";
+	btnBonus.innerHTML = "Bonus (Prix: 5000)";
 	btnBonus.disabled = false;
  	if (bonusTimer != 0){
 		clearInterval(intervalIdBonus);
