@@ -1,6 +1,6 @@
 
 // variables globales
-var score = 150;
+var score = 0;
 var multiplicateur = 1;
 var div = document.getElementById("affichage");
 var prix = 0;
@@ -80,6 +80,7 @@ function autoBonus() {
 	if (bonusTimer === 0){
 		btnBonus.innerHTML = "bonus Prix: 5000";
 		clearInterval(intevalIdBonus);
+		btnBonus.disabled = false;
 	}
 
 }
