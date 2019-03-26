@@ -29,7 +29,7 @@ function boutonClic() {
 }
 
 function augmenterMultiplicateur() {
-	var btn = document.getElementById("Multiplier");
+	var btn = document.getElementById("multiplier");
 	//var pmultiplicateur = document.getElementById("multiplicateur");
  	prix = multiplicateur*50;
  	multiplicateur++;
