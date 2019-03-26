@@ -1,20 +1,20 @@
 
 // variables globales
-var score = 0;
+var score = 10000;
 var multiplicateur = 1;
 var div = document.getElementById("affichage");
 var prix = 0;
-var intevalId = null;
+var intervalId = null;
 var bonusTimer = 0;
-var intevalIdBonus = null;
+var intervalIdBonus = null;
 
 function aleatoire(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function boutonClic() {
-	var btn = document.getElementById("clic");
-	var pscore = document.getElementById("score");
+	//var btn = document.getElementById("clic");
+	//var pscore = document.getElementById("score");
  	if (bonusTimer != 0){
 	  score += multiplicateur*2;
 		
@@ -22,10 +22,10 @@ function boutonClic() {
 	  score += multiplicateur;
 
 	}
-    pscore.innerHTML = score;
-    btn.innerHTML = score;
+	activerBoutons();
+    //pscore.innerHTML = score;
+    //btn.innerHTML = score;
     //autoClic();
-
 }
 
 function augmenterMultiplicateur() {
@@ -38,21 +38,22 @@ function augmenterMultiplicateur() {
     if (score < 0){
     	score = 0;
     }
-    document.getElementById("score").innerHTML = score;
-    btn.innerHTML = " Multiplicateur x " + multiplicateur + " Prix : " + (multiplicateur*50);
+   btn.innerHTML = " Multiplicateur x " + multiplicateur + " Prix : " + (multiplicateur*50);
     //autoClic();
+	activerBoutons();
 }
 
 // étape 11 et 12
 function autoClic() {
-   // if (score >= 200 && intevalId === null){
-   	if (intevalId === null){
-	  	intervalID = setInterval(boutonClic, 1000);
+   // if (score >= 200 && intervalId === null){
+   	if (intervalId === null){
+	  	intervalId = setInterval(boutonClic, 1000);
 	  	document.getElementById("autoclic").disabled = true;
 	    score -= 500;
 	    if (score < 0){
 	    	score = 0;
 	    }
+		activerBoutons();
     }
 }
 
@@ -66,10 +67,11 @@ function bonusClic() {
     if (score < 0){
     	score = 0;
 
-   	if (intevalIdBonus === null){
-	  	intevalIdBonus = setInterval(autoBonus, 1000);
-	    }
+	   	if (intervalIdBonus === null){
+		  	intervalIdBonus = setInterval(autoBonus, 1000);
+		}
     }
+	activerBoutons();
 }
 
 function autoBonus() {
@@ -79,10 +81,19 @@ function autoBonus() {
 
 	if (bonusTimer === 0){
 		btnBonus.innerHTML = "bonus Prix: 5000";
-		clearInterval(intevalIdBonus);
+		clearInterval(intervalIdBonus);
 		btnBonus.disabled = false;
 	}
+	activerBoutons();
 
+}
+
+function activerBoutons() {
+    document.getElementById("clic").innerHTML = score;
+    document.getElementById("score").innerHTML = score;
+	document.getElementById("multiplier").disabled = (score < multiplicateur*50);
+	document.getElementById("autoclic").disabled = (score < 500 || intervalId != null);
+ 	document.getElementById("bonus").disabled = (score < 5000);
 }
 
 function stopautoClic() {
