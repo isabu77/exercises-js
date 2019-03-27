@@ -7,8 +7,8 @@ var div = document.getElementById("affichage") ;
 
 // variables
 var score = 0;
-var multiplicateur =1
-var prixMultiplicateur= 50;
+var multiplicateur = 1;
+var prixMultiplicateur = 50;
 var autoclick = 0; /* autoclick arreter 0 sinon 1 */
 var timer;
 var bonusActif = 1;
