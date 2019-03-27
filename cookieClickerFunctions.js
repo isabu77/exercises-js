@@ -37,7 +37,7 @@ function augmenterMultiplicateur() {
     	score -= prix;
 			prix *= 2;
  			multiplicateur++;
- 	 		btn.innerHTML = " Multiplicateur x" + multiplicateur + " (Prix : " + prix + ")";
+ 	 		btn.innerHTML = " Multiplicateur x" + multiplicateur + " (Prix : " + prix + " clics)";
     	//autoClic();
 	}
 	activerBoutons();
