@@ -11,7 +11,13 @@ function clic() {
 };
 
 function augmenterMultiplicateur() {
+	//retire 50 au score
+	score -= 50;
+	//affiche le score dans la div
+	div.innerHTML = score;
+	// ajoute +1 au multiplicateur
 	multiplicateur++;
+	//affiche la valeur multiplicateur sur le bouton
 	buttonMultiplier.innerHTML = multiplicateur;
 	
 }
