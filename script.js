@@ -19,9 +19,11 @@ function augmenterMultiplicateur() {
 		div.innerHTML = score;
 		// ajoute +1 au multiplicateur
 		multiplicateur++;
-		//affiche la valeur multiplicateur sur le bouton
-		buttonMultiplier.innerHTML =  "Multiplicateur x" + multiplicateur;
+
 		prixMultiplicateur *= 2;
+		//affiche la valeur multiplicateur sur le bouton
+		buttonMultiplier.innerHTML =  "Multiplicateur x" + multiplicateur + " (-"+ prixMultiplicateur +" clics)";
+		
 	}
 	
 	
