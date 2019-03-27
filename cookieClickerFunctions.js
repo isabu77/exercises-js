@@ -7,6 +7,10 @@ var prix = 50;
 var intervalId = null;
 var bonusTimer = 0;
 var intervalIdBonus = null;
+var bAutoclick = 0;
+var bonus = 1;
+var btnBonus = document.getElementById("bonus");
+var btnMultiplier = document.getElementById("multiplier");
 
 // function aleatoire(min, max) {
 //     return Math.floor(Math.random() * (max - min)) + min;
@@ -15,21 +19,20 @@ var intervalIdBonus = null;
 function boutonClic() {
 	//var btn = document.getElementById("clic");
 	//var pscore = document.getElementById("score");
- 	if (bonusTimer != 0){
-	  score += multiplicateur*2;
+ 	//if (bonusTimer != 0){
+	  score += multiplicateur*bonus;
 
-	}else{
-	  score += multiplicateur;
+	//}else{
+	  //score += multiplicateur;
 
-	}
-	activerBoutons();
+	//}
+		activerBoutons();
     //pscore.innerHTML = score;
     //btn.innerHTML = score;
     //autoClic();
 }
 
 function augmenterMultiplicateur() {
-	var btn = document.getElementById("multiplier");
 	//var pmultiplicateur = document.getElementById("multiplicateur");
  	if (score >= prix){
 			//prix = multiplicateur*50;
@@ -37,7 +40,7 @@ function augmenterMultiplicateur() {
     	score -= prix;
 			prix *= 2;
  			multiplicateur++;
- 	 		btn.innerHTML = " Multiplicateur x" + multiplicateur + " (Prix : " + prix + " clics)";
+ 	 		btnMultiplier.innerHTML = " Multiplicateur x" + multiplicateur + " (" + prix + " clics)";
     	//autoClic();
 	}
 	activerBoutons();
@@ -46,6 +49,12 @@ function augmenterMultiplicateur() {
 // étape 11 et 12
 function autoClic() {
    // if (score >= 200 && intervalId === null){
+		// if (score >= 500 && bAutoclick === 0 )
+		// {
+		// 		setInterval(boutonClic, 1000);
+	 //  		//autoClic();
+		// 		bAutoclick = 1;
+		// }
    	if (intervalId === null && score >= 500){
 	  	intervalId = setInterval(boutonClic, 1000);
 	  	document.getElementById("autoclic").disabled = true;
@@ -54,31 +63,44 @@ function autoClic() {
 		activerBoutons();
 }
 
+function setBonus() {
+		if (bonus == 1){
+ 			bonus = 2;
+			btnBonus.disabled = true;
+ 		}else{
+ 			bonus = 1;
+			btnBonus.disabled = false;
+ 		}
+
+}
+
 // étape 13
 function bonusClic() {
-	var btnBonus = document.getElementById("bonus");
  	if (score >= 5000){
+ 			setBonus();
+
 			bonusTimer = 30;
-			btnBonus.disabled = true;
 			btnBonus.innerHTML = bonusTimer;
     	score -= 5000;
+    	//setTimeOut(setBonus, 30000);
 	  	if (intervalIdBonus === null){
 		  	intervalIdBonus = setInterval(autoBonus, 1000);
-    }
+    	}
+
  	}
 	activerBoutons();
 }
 
 function autoBonus() {
-	var btnBonus = document.getElementById("bonus");
 	bonusTimer--;
-	btnBonus.innerHTML = bonusTimer;
+	btnBonus.innerHTML = bonusTimer + " s";
 
 	if (bonusTimer === 0){
-		btnBonus.innerHTML = "Bonus (Prix: 5000)";
+			bonusTimer = 30;
+		btnBonus.innerHTML = "BONUS (5000 clics)";
 		clearInterval(intervalIdBonus);
-		btnBonus.disabled = false;
 		intervalIdBonus = null;
+		setBonus();
 	}
 	activerBoutons();
 
@@ -87,14 +109,14 @@ function autoBonus() {
 function activerBoutons() {
     document.getElementById("clic").innerHTML = score;
     document.getElementById("score").innerHTML = score;
-	document.getElementById("multiplier").disabled = (score < multiplicateur*50);
+	document.getElementById("multiplier").disabled = (score < prix);
 	document.getElementById("autoclic").disabled = (score < 500 || intervalId != null);
  	document.getElementById("bonus").disabled = (score < 5000);
 }
 
 function stopautoClic() {
 	var btnBonus = document.getElementById("bonus");
-	btnBonus.innerHTML = "Bonus (Prix: 5000)";
+	btnBonus.innerHTML = "BONUS (5000 clics)";
 	btnBonus.disabled = false;
  	if (bonusTimer != 0){
 		clearInterval(intervalIdBonus);
