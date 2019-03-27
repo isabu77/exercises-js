@@ -18,14 +18,14 @@ function clic() {
 	score += multiplicateur * bonusActif;
 	//score+multiplicateur
 	div.innerHTML = score;
-	
-
+	verifScore();
 };
 
 function augmenterMultiplicateur() {
 	if(score >= prixMultiplicateur){
 		//retire 50 au score
 		score -= prixMultiplicateur;
+		verifScore();
 		//affiche le score dans la div
 		div.innerHTML = score;
 		// ajoute +1 au multiplicateur
@@ -68,6 +68,7 @@ function bonus(){
 function achatBonus() {
 	if(score >= 5000){
 		score-=5000;
+		verifScore()
 		div.innerHTML = score;
 		bonus();
 		//solution sans timer
@@ -82,9 +83,29 @@ function timerCount(){
 	if (nbSec === 0){
   		clearInterval(timer);
   		bonus();
+  		verifScore()
   		buttonBonus.innerHTML = "BONUS (5000 clics)";
   		nbSec = 30;
   	}
+}
+
+function verifScore(){
+	if (score >= prixMultiplicateur){
+		buttonMultiplier.removeAttribute("disabled");
+	}else{
+		buttonMultiplier.setAttribute("disabled", "");
+	}
+	if (score >= 5000 && bonusActif === 1){
+		buttonBonus.removeAttribute("disabled");
+	}else{
+		buttonBonus.setAttribute("disabled", "");
+	}
+	if (score >= 500 && autoclick === 0){
+		buttonAutoClic.removeAttribute("disabled");
+	}else{
+		buttonAutoClic.setAttribute("disabled", "");
+	}
+	
 }
 
 
