@@ -21,7 +21,7 @@ function augmenterMultiplicateur() {
 		multiplicateur++;
 		//affiche la valeur multiplicateur sur le bouton
 		buttonMultiplier.innerHTML =  "Multiplicateur x" + multiplicateur;
-		prixMultiplicateur = prixMultiplicateur*2;
+		prixMultiplicateur *= 2;
 	}
 	
 	
