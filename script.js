@@ -1,6 +1,7 @@
 var button = document.getElementById("clic");
 var buttonMultiplier = document.getElementById("multiplier");
 var buttonAutoClic = document.getElementById("autoclick");
+var buttonBonus = document.getElementById("bonus");
 var div = document.getElementById("affichage") ;
 var score = 0;
 var multiplicateur =1
@@ -8,9 +9,13 @@ var prixMultiplicateur= 50;
 //autoclick arreter 0 sinon 1
 var autoclick = 0;
 
+var timer;
+var bonusActif = 1;
+var nbSec = 30;
+
 
 function clic() { 
-	score += multiplicateur;
+	score += multiplicateur * bonusActif;
 	//score+multiplicateur
 	div.innerHTML = score;
 	
@@ -42,12 +47,44 @@ function achatAutoclick(){
 			score-=500;
 			div.innerHTML = score;
 			
-			intervalID = setInterval(clic, 1000);
+			intervalIDclic = setInterval(clic, 1000);
 		}
 	}
 }
 
+function bonus(){
+		//bonus non activé
+		if (bonusActif == 1){
+			//activation
+			bonusActif = 2;
+			buttonBonus.setAttribute("disabled", "");
+		}else{
+			//sinon désactivation
+			bonusActif = 1;
+			buttonBonus.removeAttribute("disabled");
+		}
+}
 
+function achatBonus() {
+	if(score >= 5000){
+		score-=5000;
+		div.innerHTML = score;
+		bonus();
+		//solution sans timer
+		//var chrono = setTimeout(bonus, 30000);
+		timer = setInterval(timerCount, 1000);
+	}
+}
 
+function timerCount(){
+	nbSec--;
+	buttonBonus.innerHTML = nbSec + " s";
+	if (nbSec === 0){
+  		clearInterval(timer);
+  		bonus();
+  		buttonBonus.innerHTML = "BONUS (5000 clics)";
+  		nbSec = 30;
+  	}
+}
 
 
