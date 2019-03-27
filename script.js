@@ -1,19 +1,22 @@
+// variables pour cibler les boutons / div
 var button = document.getElementById("clic");
 var buttonMultiplier = document.getElementById("multiplier");
 var buttonAutoClic = document.getElementById("autoclick");
 var buttonBonus = document.getElementById("bonus");
 var div = document.getElementById("affichage") ;
+
+// variables
 var score = 0;
 var multiplicateur =1
 var prixMultiplicateur= 50;
-//autoclick arreter 0 sinon 1
-var autoclick = 0;
-
+var autoclick = 0; /* autoclick arreter 0 sinon 1 */
 var timer;
 var bonusActif = 1;
-var nbSec = 30;
+var nbSec = 30; /* durée du timer en s*/
 
-
+/**
+* ajoute (multiplicateur * bonusActif) au score quand elle est appeler
+*/
 function clic() { 
 	score += multiplicateur * bonusActif;
 	//score+multiplicateur
@@ -21,6 +24,10 @@ function clic() {
 	verifScore();
 };
 
+
+/**
+* augement le multiplicateur de +1 a chaque appel de la fonction
+*/
 function augmenterMultiplicateur() {
 	if(score >= prixMultiplicateur){
 		//retire 50 au score
@@ -38,6 +45,10 @@ function augmenterMultiplicateur() {
 	}
 }
 
+
+/**
+* appel la fonction clic() toutes les 1secondes
+*/
 function achatAutoclick(){
 	if (score >= 500){
 		//si pas deja d'autoclic
@@ -52,6 +63,9 @@ function achatAutoclick(){
 	}
 }
 
+/**
+* passe la variable bonus a 2
+*/
 function bonus(){
 		//bonus non activé
 		if (bonusActif == 1){
@@ -65,6 +79,9 @@ function bonus(){
 		}
 }
 
+/**
+* vérifie que l'on peut lancer le bonus et lance la fonction timerCount() toutes les 1secondes
+*/
 function achatBonus() {
 	if(score >= 5000){
 		score-=5000;
@@ -77,6 +94,9 @@ function achatBonus() {
 	}
 }
 
+/**
+* function du compte à rebour
+*/
 function timerCount(){
 	nbSec--;
 	buttonBonus.innerHTML = nbSec + " s";
@@ -88,7 +108,9 @@ function timerCount(){
   		nbSec = 30;
   	}
 }
-
+/**
+* active ou désactive les bouton selon notre nombre de clic dispo 
+*/ 
 function verifScore(){
 	if (score >= prixMultiplicateur){
 		buttonMultiplier.removeAttribute("disabled");
