@@ -3,7 +3,7 @@
 var score = 0;
 var multiplicateur = 1;
 //var div = document.getElementById("affichage");
-var prix = 0;
+var prix = 50;
 var intervalId = null;
 var bonusTimer = 0;
 var intervalIdBonus = null;
@@ -31,13 +31,14 @@ function boutonClic() {
 function augmenterMultiplicateur() {
 	var btn = document.getElementById("multiplier");
 	//var pmultiplicateur = document.getElementById("multiplicateur");
- 	if (score >= 50){
-		prix = multiplicateur*50;
- 		multiplicateur++;
-    //pmultiplicateur.innerHTML = multiplicateur;
-    score -= prix;
- 	  btn.innerHTML = " Multiplicateur x " + multiplicateur + " (Prix : " + (multiplicateur*50) + ")";
-    //autoClic();
+ 	if (score >= prix){
+			//prix = multiplicateur*50;
+    	//pmultiplicateur.innerHTML = multiplicateur;
+    	score -= prix;
+			prix *= 2;
+ 			multiplicateur++;
+ 	 		btn.innerHTML = " Multiplicateur x" + multiplicateur + " (Prix : " + prix + ")";
+    	//autoClic();
 	}
 	activerBoutons();
 }
@@ -56,7 +57,7 @@ function autoClic() {
 // étape 13
 function bonusClic() {
 	var btnBonus = document.getElementById("bonus");
- 	if (score >= 50){
+ 	if (score >= 5000){
 			bonusTimer = 30;
 			btnBonus.disabled = true;
 			btnBonus.innerHTML = bonusTimer;
