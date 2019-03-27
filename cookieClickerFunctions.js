@@ -1,6 +1,6 @@
 
 // variables globales
-var score = 10000;
+var score = 0;
 var multiplicateur = 1;
 //var div = document.getElementById("affichage");
 var prix = 0;
@@ -17,7 +17,7 @@ function boutonClic() {
 	//var pscore = document.getElementById("score");
  	if (bonusTimer != 0){
 	  score += multiplicateur*2;
-		
+
 	}else{
 	  score += multiplicateur;
 
@@ -31,46 +31,40 @@ function boutonClic() {
 function augmenterMultiplicateur() {
 	var btn = document.getElementById("multiplier");
 	//var pmultiplicateur = document.getElementById("multiplicateur");
- 	prix = multiplicateur*50;
- 	multiplicateur++;
+ 	if (score >= 50){
+		prix = multiplicateur*50;
+ 		multiplicateur++;
     //pmultiplicateur.innerHTML = multiplicateur;
     score -= prix;
-    if (score < 0){
-    	score = 0;
-    }
-   btn.innerHTML = " Multiplicateur x " + multiplicateur + " (Prix : " + (multiplicateur*50) + ")";
+ 	  btn.innerHTML = " Multiplicateur x " + multiplicateur + " (Prix : " + (multiplicateur*50) + ")";
     //autoClic();
+	}
 	activerBoutons();
 }
 
 // étape 11 et 12
 function autoClic() {
    // if (score >= 200 && intervalId === null){
-   	if (intervalId === null){
+   	if (intervalId === null && score >= 500){
 	  	intervalId = setInterval(boutonClic, 1000);
 	  	document.getElementById("autoclic").disabled = true;
 	    score -= 500;
-	    if (score < 0){
-	    	score = 0;
-	    }
+	  }
 		activerBoutons();
-    }
 }
 
 // étape 13
 function bonusClic() {
 	var btnBonus = document.getElementById("bonus");
-	bonusTimer = 30;
-	btnBonus.disabled = true;
-	btnBonus.innerHTML = bonusTimer;
-    score -= 5000;
-    if (score < 0){
-    	score = 0;
+ 	if (score >= 50){
+			bonusTimer = 30;
+			btnBonus.disabled = true;
+			btnBonus.innerHTML = bonusTimer;
+    	score -= 5000;
+	  	if (intervalIdBonus === null){
+		  	intervalIdBonus = setInterval(autoBonus, 1000);
     }
-
-   	if (intervalIdBonus === null){
-	  	intervalIdBonus = setInterval(autoBonus, 1000);
-	}
+ 	}
 	activerBoutons();
 }
 
