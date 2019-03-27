@@ -5,8 +5,8 @@ var score = 0;
 var multiplicateur =1;
 
 function clic() { 
-	score++;
-	//score+1
+	score += multiplicateur;
+	//score+multiplicateur
 	div.innerHTML = score;
 };
 
