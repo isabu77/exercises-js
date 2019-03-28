@@ -6,11 +6,21 @@
 	
 </head>
 <body>
-	<button id="clic" onclick="clic()"><img src="./assets/img/Cookie.png"></button>
-	<div id="affichage">0</div>
-	<button id="multiplier" onclick="augmenterMultiplicateur()" disabled>Multiplicateur x1 (-50 clics)</button>
-	<button id="autoclick" onclick="achatAutoclick()" disabled>Autoclick (500 clics)</button>
-	<button id="bonus" onclick="achatBonus()" disabled>BONUS (5000 clics)</button>
+	<div id=click>
+		<button id="clic" onclick="clic()"><img src="./assets/img/Cookie.png"></button>
+	</div>
+
+	<div id="actions">
+		<button class= "bouton" id="multiplier" onclick="augmenterMultiplicateur()" disabled>Multiplicateur x1 (-50 clics)
+		</button>
+		<button class= "bouton" id="autoclick" onclick="achatAutoclick()" disabled>Autoclick (500 clics)</button>
+		<button class= "bouton" id="bonus" onclick="achatBonus()" disabled>BONUS (5000 clics)</button>
+		
+	</div>
+
+	<div id="affichage">
+		<span>0</span>
+	</div>
 
 
 
