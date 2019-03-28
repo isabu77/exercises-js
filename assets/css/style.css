@@ -1,4 +1,16 @@
 body{
-	background-color: black;
-	color: white;
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
+	background-image : url("../img/fond.jpg");
+	background-size: cover;
+	margin:auto;
+	background-attachment:fixed;
+}
+button{
+	background-color: transparent;
+}
+
+#clic{
+
 }
