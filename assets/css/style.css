@@ -7,7 +7,10 @@ body{
 	justify-content:center;
 	align-items:center;
 }
+img{
+	  	cursor: url(../img/curseur.jpg), pointer;
 
+}
 .bouton{
       color: rgb(255, 255, 255); 
       font-size: 16px; 
@@ -35,6 +38,10 @@ body{
      color: rgb(130, 230, 230); 
  }
 
+/* la div click */
+#click{
+
+}
 /*le bouton clic*/
 #clic{
 	background-color: transparent;

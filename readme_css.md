@@ -28,10 +28,10 @@ Mettre un background vraiment cool.
 ## Étape 4 : _Styliser les boutons_ 
 Améliorer la lisibilité de ceux-ci surtout quand ils sont désactivés.
 
-## Étape 4 : _Styliser le curseur_
+## Étape 5 : _Styliser le curseur_
 Changer la forme du curseur pour coller au theme du jeu ;)
 
-## Étape 5 : _Votre imagination n'a plus de limite_
+## Étape 6 : _Votre imagination n'a plus de limite_
 Garder un jeu propre, homogène, lisible par tous qui donne envie de jouer sans limite.
 
 ## Étape bonus 1:
