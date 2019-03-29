@@ -1,65 +1,75 @@
-body{
-	background-image : url("../img/fond.jpg");
-	background-size: cover;
-	background-attachment:fixed;
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	align-items:center;
+body {
+    background-image: url("../img/fond.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-img{
-	  	cursor: url(../img/curseur.jpg), pointer;
 
+img {
+    cursor: url(../img/curseur.png), pointer;
 }
-.bouton{
-      color: rgb(255, 255, 255); 
-      font-size: 16px; 
-      line-height: 16px; 
-      padding: 6px; 
-      border-radius: 26px; 
-      font-family: Georgia, serif; 
-      font-weight: normal; 
-      text-decoration: none; 
-      font-style: normal; 
-      font-variant: normal; 
-      text-transform: none; 
-      background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
-      box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; 
-       display: inline-block;
+
+.bouton {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 16px;
+    padding: 6px;
+    border-radius: 26px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
+    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+    display: inline-block;
 }
+
 .bouton:hover {
-      background: #1C6EA4; 
+    background: #1C6EA4;
 }
+
 .bouton:active {
-      background: #144E75; 
+    background: #144E75;
 }
+
 .bouton:disabled {
-      background: #144E75; 
-     color: rgb(130, 230, 230); 
- }
+    background: #144E75;
+    color: rgb(130, 230, 230);
+}
+
 
 /* la div click */
-#click{
 
-}
+#click {}
+
+
 /*le bouton clic*/
-#clic{
-	background-color: transparent;
-	border:none;
 
+#clic {
+    background-color: transparent;
+    border: 0;
 }
+
+
 /* le score affiché */
-#affichage{
-	text-align: center;
-	font-size: 48px;
-	background-color: transparent;
+
+#affichage {
+    text-align: center;
+    font-size: 48px;
+    background-color: transparent;
 }
+
 
 /* les boutons d'action */
-#actions{
-	display:flex;
-	justify-content:center;
-	flex-direction:row;
-	text-align: center;
-}
 
+#actions {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
